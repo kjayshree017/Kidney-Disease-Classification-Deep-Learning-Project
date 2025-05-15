@@ -45,7 +45,8 @@ python app.py
 ## MLflow
 
 ### Documentation
-#### MLflow tutorial
+https://mlflow.org/docs/latest/index.html
+
 
 ### cmd
 - mlflow ui
