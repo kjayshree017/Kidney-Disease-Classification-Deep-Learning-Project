@@ -609,3 +609,379 @@ x==========x]
 [2025-05-14 18:23:40,280: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2025-05-15 13:51:01,405: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-15 13:51:01,408: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-15 13:51:01,411: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-15 13:51:01,554: INFO: common: created directory at: artifacts]
+[2025-05-15 13:51:01,555: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-15 13:51:01,558: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-15 13:51:04,425: ERROR: stage_01_data_ingestion: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/imm3coi16jfvbbboa4vi4iqnddaq82tq/1747297200000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=a982dd6e-0729-4cd6-b41c-8430eba7ae35 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018376F950D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))]
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\socket.py", line 930, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x0000018376F950D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/imm3coi16jfvbbboa4vi4iqnddaq82tq/1747297200000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=a982dd6e-0729-4cd6-b41c-8430eba7ae35 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018376F950D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 33, in download_file
+    raise e
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\gdown\download.py", line 202, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in send
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in <listcomp>
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/imm3coi16jfvbbboa4vi4iqnddaq82tq/1747297200000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=a982dd6e-0729-4cd6-b41c-8430eba7ae35 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018376F950D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-05-15 13:53:38,028: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-15 13:53:38,032: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-15 13:53:38,037: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-15 13:53:38,037: INFO: common: created directory at: artifacts]
+[2025-05-15 13:53:38,038: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-15 13:53:38,038: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-15 13:53:41,095: ERROR: stage_01_data_ingestion: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/1hiikpuir495fmohtsmqbpdfsblt8ieg/1747297350000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=70870fc1-8cac-49f4-a1f5-d5c4281cb1af (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024097FEF3A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))]
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\socket.py", line 930, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x0000024097FEF3A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/1hiikpuir495fmohtsmqbpdfsblt8ieg/1747297350000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=70870fc1-8cac-49f4-a1f5-d5c4281cb1af (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024097FEF3A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 33, in download_file
+    raise e
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\gdown\download.py", line 202, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in send
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in <listcomp>
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/1hiikpuir495fmohtsmqbpdfsblt8ieg/1747297350000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=70870fc1-8cac-49f4-a1f5-d5c4281cb1af (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024097FEF3A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-05-15 13:59:13,228: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-15 13:59:13,231: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-15 13:59:13,231: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-15 13:59:13,231: INFO: common: created directory at: artifacts]
+[2025-05-15 13:59:13,238: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-15 13:59:13,238: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-15 13:59:15,913: ERROR: stage_01_data_ingestion: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/53di0osgup15e46cqrgg2f6lict2ps4l/1747297725000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=c2e9c64f-e686-4531-b8f8-7291536eab81 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002C2286451F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))]
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\socket.py", line 930, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000002C2286451F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/53di0osgup15e46cqrgg2f6lict2ps4l/1747297725000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=c2e9c64f-e686-4531-b8f8-7291536eab81 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002C2286451F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 33, in download_file
+    raise e
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\gdown\download.py", line 202, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in send
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 724, in <listcomp>
+    history = [resp for resp in gen]
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='doc-0g-3k-docs.googleusercontent.com', port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/53di0osgup15e46cqrgg2f6lict2ps4l/1747297725000/03596185573253187741/*/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3?uuid=c2e9c64f-e686-4531-b8f8-7291536eab81 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002C2286451F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-05-16 17:10:26,475: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:10:26,477: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:10:26,507: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:10:26,507: INFO: common: created directory at: artifacts]
+[2025-05-16 17:10:26,507: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:10:26,507: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:10:43,797: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:10:44,702: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:13:01,749: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:13:01,753: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:13:01,756: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:13:01,757: INFO: common: created directory at: artifacts]
+[2025-05-16 17:13:01,758: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:13:01,758: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:13:19,169: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:13:20,023: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:19:53,248: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:19:53,261: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:19:53,265: INFO: common: created directory at: artifacts]
+[2025-05-16 17:20:05,023: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:20:37,090: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:21:22,218: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:21:49,492: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:22:04,142: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:22:26,369: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:24:43,658: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:24:43,658: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:24:43,658: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:24:43,658: INFO: common: created directory at: artifacts]
+[2025-05-16 17:24:43,658: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:24:43,658: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:25:02,040: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:25:02,718: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:25:02,719: INFO: main: *******************]
+[2025-05-16 17:25:02,719: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-05-16 17:25:02,721: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:25:02,722: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:25:02,722: INFO: common: created directory at: artifacts]
+[2025-05-16 17:25:02,726: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-05-16 17:25:03,389: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-16 17:25:04,306: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-05-16 17:25:04,306: INFO: main: *******************]
+[2025-05-16 17:25:04,306: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-05-16 17:25:04,306: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:25:04,320: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:25:04,321: INFO: common: created directory at: artifacts]
+[2025-05-16 17:25:04,322: INFO: common: created directory at: artifacts\training]
+[2025-05-16 17:27:44,415: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-05-16 17:27:44,416: INFO: main: *******************]
+[2025-05-16 17:27:44,417: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-05-16 17:27:44,424: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:27:44,427: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:27:44,428: INFO: common: created directory at: artifacts]
+[2025-05-16 17:28:12,500: INFO: common: json file saved at: scores.json]
+[2025-05-16 17:28:12,500: INFO: common: json file saved at: scores.json]
+[2025-05-16 17:28:14,759: ERROR: main: API request to endpoint /api/2.0/mlflow/runs/create failed with error code 403 != 200. Response body: '']
+Traceback (most recent call last):
+  File "main.py", line 61, in <module>
+    model_evalution.main()
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 20, in main
+    evaluation.log_into_mlflow()
+  File "c:\kidney-disease-classification-deep-learning-project\src\cnnClassifier\components\model_evaluation_mlflow.py", line 60, in log_into_mlflow
+    with mlflow.start_run():
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\tracking\fluent.py", line 418, in start_run
+    active_run_obj = client.create_run(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\tracking\client.py", line 393, in create_run
+    return self._tracking_client.create_run(experiment_id, start_time, tags, run_name)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 168, in create_run
+    return self.store.create_run(
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\store\tracking\rest_store.py", line 209, in create_run
+    response_proto = self._call_endpoint(CreateRun, req_body)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\store\tracking\rest_store.py", line 82, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\utils\rest_utils.py", line 370, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "C:\Users\JAySHREE KUMARI\anaconda3\envs\kidney\lib\site-packages\mlflow\utils\rest_utils.py", line 246, in verify_rest_response
+    raise MlflowException(
+mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/runs/create failed with error code 403 != 200. Response body: ''
+[2025-05-16 17:30:03,564: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:30:03,564: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:30:03,564: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:30:03,564: INFO: common: created directory at: artifacts]
+[2025-05-16 17:30:03,564: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:30:03,564: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:30:21,204: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:30:21,997: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:31:41,701: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:31:41,716: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:31:41,716: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:31:41,716: INFO: common: created directory at: artifacts]
+[2025-05-16 17:31:41,716: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:31:41,716: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:31:58,223: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:31:58,996: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:33:30,883: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-05-16 17:33:30,886: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:33:30,890: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:33:30,891: INFO: common: created directory at: artifacts]
+[2025-05-16 17:33:30,891: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-16 17:33:30,892: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:33:47,508: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-05-16 17:33:48,404: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-05-16 17:34:01,810: INFO: stage_02_prepare_base_model: *******************]
+[2025-05-16 17:34:01,810: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2025-05-16 17:34:01,822: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:34:01,825: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:34:01,826: INFO: common: created directory at: artifacts]
+[2025-05-16 17:34:01,827: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-05-16 17:34:02,623: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-16 17:34:03,104: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-05-16 17:35:59,234: INFO: stage_02_prepare_base_model: *******************]
+[2025-05-16 17:35:59,235: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2025-05-16 17:35:59,239: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:35:59,242: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:35:59,242: INFO: common: created directory at: artifacts]
+[2025-05-16 17:35:59,243: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-05-16 17:35:59,835: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-16 17:36:00,306: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-05-16 17:36:07,573: INFO: stage_03_model_training: *******************]
+[2025-05-16 17:36:07,574: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2025-05-16 17:36:07,577: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:36:07,578: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:36:07,578: INFO: common: created directory at: artifacts]
+[2025-05-16 17:36:07,581: INFO: common: created directory at: artifacts\training]
+[2025-05-16 17:39:26,487: INFO: stage_03_model_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-05-16 17:40:57,821: INFO: stage_03_model_training: *******************]
+[2025-05-16 17:40:57,837: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2025-05-16 17:40:57,837: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:40:57,837: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:40:57,837: INFO: common: created directory at: artifacts]
+[2025-05-16 17:40:57,844: INFO: common: created directory at: artifacts\training]
+[2025-05-16 17:43:41,586: INFO: stage_03_model_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-05-16 17:43:48,285: INFO: stage_04_model_evaluation: *******************]
+[2025-05-16 17:43:48,285: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-05-16 17:43:48,285: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-16 17:43:48,285: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-16 17:43:48,285: INFO: common: created directory at: artifacts]
+[2025-05-16 17:44:15,835: INFO: common: json file saved at: scores.json]
+[2025-05-16 17:44:15,835: INFO: common: json file saved at: scores.json]
+[2025-05-16 17:44:15,839: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
